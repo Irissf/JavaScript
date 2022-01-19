@@ -1,0 +1,36 @@
+:root{
+    --color-primario:#333;
+    --color-secundario:#ccc;
+}
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.container{
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    padding: 20px;
+    background-color: var(--color-primario);
+    width: 300px;
+    border-radius: 5px;
+}
+.text,#resultado{
+    margin: 0;
+    color: var(--color-secundario);
+}
+.mayor__input,.mayor__boton{
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+}
