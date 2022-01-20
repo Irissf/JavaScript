@@ -22,6 +22,12 @@ function numMayor() {
 
 }
 
-function minComunMultiplo() {
-    
+function sumaNumeros() {
+    let numero = document.getElementById("num1-sn").value;
+    let resultado = 0;
+    for (let i = 0; i < numero.length; i++) {
+        resultado += parseInt(numero[i]);
+    }
+    console.log(resultado)
+    document.getElementById("resultado-sn").textContent = `La suma de los números de ${numero} es ${resultado}`;
 }

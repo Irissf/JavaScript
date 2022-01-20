@@ -25,7 +25,11 @@ body{
     width: 300px;
     border-radius: 5px;
 }
-.text,#resultado{
+.title{
+    text-align: center;
+    color:var(--color-secundario)
+}
+.text,.resultado{
     margin: 0;
     color: var(--color-secundario);
 }

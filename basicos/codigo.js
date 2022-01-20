@@ -3,8 +3,10 @@ var edad = 17;
 const SUMA = 6;
 var siSumar = true;
 
-//let=>crea una variable que solo tiene valor en el bloque en el 
-//que se ejecuta y al acabr se elimina
+/*let=>crea una variable que solo tiene valor en el bloque en el 
+que se ejecuta y al acabr se elimina, Vive en el scope, const tiene todas
+las ventajas de let, pero es solo de lectura. aunque si podemos modificar su interior
+si es un array*/
 
 //arrays
 var numeros = ["uno", "dos", "tres", "cuatro"];
@@ -18,6 +20,7 @@ var objeto = {
 // sumar();
 // verTipo();
 // interpolacionCadenas();
+arraysCositas()
 
 //#region basicos
 function sumar() {
@@ -59,12 +62,68 @@ function convertir(a) {
 //#endregion
 
 //#region funciones y eventos
+
 function saludar(nombre) {
     console.log("Hola "+nombre);
 }
 function iniciar() {
     saludar("Iris");
-    saludar("Maria");
 }
 document.getElementById("pulsar").onclick = iniciar;
+//#endregion
+
+function arraysCositas() {
+    const frutas = ["Manzana","Plátano"];
+    frutas[2] = "Sandía";
+
+    //diferentes métodos de los array
+    //push ==> empuja un nuevo elemento al final del array
+    frutas.push("Pera");
+    
+    //unshift ==> Lo agrega al principio
+    frutas.unshift("Melón")
+    
+    //pop ==> Elimina el último elemento y lo devuelve
+    const frutaEliminada = frutas.pop(); 
+    console.log(frutaEliminada);
+    
+    //shift ==>Elimina el primer elemento del array
+    const primeraFrutaEliminada = frutas.shift();
+    console.log(primeraFrutaEliminada);
+    
+    console.log(frutas);
+}
+
+//#region funciones
+
+//funcion declarativa, las de siempre
+function numAzarDelarativo(min,max) {
+    return Math.floor(Math.random() * (max - min)) +min;
+}
+/*funciones anónimas => funciones expresadas, la diferencia con las declarativas
+es que necesita ser declarada antes de ser llamadab */
+const numAzar = function(min,max){
+    //el resultado de la operación lo guardamos en la variable
+    return Math.floor(Math.random() * (max - min)) +min;
+}
+
+console.log(numAzar(100,201))
+
+//funciones de flecha => con las funciones de flecha podemos tener atajos
+
+// const numeroAzarFlecha = (min,max) => {
+//     return Math.floor(Math.random() * (max - min)) +min;
+// }
+
+//por ejemplo, quitamos el return y las llaves
+// const numeroAzarFlecha = (min,max) => Math.floor(Math.random() * (max - min)) +min;
+//o con parentesis
+// const numeroAzarFlecha = (min,max) => (Math.floor(Math.random() * (max - min)) +min)
+
+// Si solo hay un parámetro
+// const numeroAzarFlecha = min => "num"+min;
+
+console.log(numeroAzarFlecha(10,21))
+
+
 //#endregion
