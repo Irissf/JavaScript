@@ -20,7 +20,6 @@ var objeto = {
 // sumar();
 // verTipo();
 // interpolacionCadenas();
-arraysCositas()
 
 //#region basicos
 function sumar() {
@@ -34,6 +33,7 @@ function verTipo() {
     console.log(typeof(siSumar));
 }
 //#endregion
+
 
 
 //#region interpolación de cadenas
@@ -72,6 +72,8 @@ function iniciar() {
 document.getElementById("pulsar").onclick = iniciar;
 //#endregion
 
+//#region cosas de arrays
+arraysCositas()
 function arraysCositas() {
     const frutas = ["Manzana","Plátano"];
     frutas[2] = "Sandía";
@@ -93,8 +95,9 @@ function arraysCositas() {
     
     console.log(frutas);
 }
+//#endregion
 
-//#region funciones
+//#region tipo defunciones
 
 //funcion declarativa, las de siempre
 function numAzarDelarativo(min,max) {
@@ -111,10 +114,11 @@ console.log(numAzar(100,201))
 
 //funciones de flecha => con las funciones de flecha podemos tener atajos
 
-// const numeroAzarFlecha = (min,max) => {
-//     return Math.floor(Math.random() * (max - min)) +min;
-// }
+const numeroAzarFlecha = (min,max) => {
+    return Math.floor(Math.random() * (max - min)) +min;
+}
 
+console.log(numeroAzarFlecha(10,21))
 //por ejemplo, quitamos el return y las llaves
 // const numeroAzarFlecha = (min,max) => Math.floor(Math.random() * (max - min)) +min;
 //o con parentesis
@@ -123,7 +127,15 @@ console.log(numAzar(100,201))
 // Si solo hay un parámetro
 // const numeroAzarFlecha = min => "num"+min;
 
-console.log(numeroAzarFlecha(10,21))
+//podemos ver entonces que el foreach usa este metodo, una funcion que retorna algo
+const frutas = ["manzana","pera","limón"]
+frutas.forEach(fruta => console.log(fruta));
+frutas.forEach((fruta,index) => {
+    console.log("==============")
+    console.log(`${index}: ${fruta}`)
+});
 
+//#endregion
 
+//#region 
 //#endregion
