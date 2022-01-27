@@ -4,10 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Modelo de objeto de documento</title>
+
+    <!-- Otra forma, si el scrip está en la cabecera y no al fondo del body,
+    es usar defer que indica al navegador que no espere por el script, este
+    carga en segudno plano y se ejecuta cuando el DOM está cargado 
+    Esto puede dar problemas por compatibilidad con navegadores, ya que es nuevo-->
+    <script src="index.js" defer></script>
 </head>
 <body>
-    <h1 id="tituloWeb">Lorem, ipsum dolor.</h1>
-    <script src="index.js"></script>
+    <h1 id="tituloWeb" class="text">Lorem, ipsum dolor.</h1>
+    <h2 id="subtitulo">Lorem, ipsum dolor.</h2>
+    <div class="container">
+        <p class="text-danger">Lorem, ipsum dolor. </p>
+        <p class="text-danger">Lorem, ipsum dolor. </p>
+        <p class="text-danger">Lorem, ipsum dolor. </p>
+    </div>
+        <p class="text-danger">Está fuera del container</p>
 </body>
 </html>
