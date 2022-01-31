@@ -28,11 +28,15 @@ document.addEventListener("DOMContentLoaded",() =>{
 //cambiar propiedades del Elementos
 const h1 = document.getElementById("tituloWeb");
 console.log(h1.id); 
-h1.textContent = "Nuevo texto desde js";
 
 //añadir eventos
 h1.addEventListener("click",()=>{
     console.log("click");
     h1.style.color = "pink";
     h1.style.fontSize = "50px";
-})
+});
+
+const boton = document.querySelector(".btn-primary");
+boton.addEventListener(("click"),()=>{
+    h1.textContent = "Nuevo texto desde js";
+});
