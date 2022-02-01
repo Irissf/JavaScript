@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded",() =>{
 
 
 
+
 //cambiar propiedades del Elementos
 const h1 = document.getElementById("tituloWeb");
 console.log(h1.id); 
@@ -40,3 +41,48 @@ const boton = document.querySelector(".btn-primary");
 boton.addEventListener(("click"),()=>{
     h1.textContent = "Nuevo texto desde js";
 });
+
+
+
+
+//Crear elementos
+const lista = document.getElementById("lista");
+
+//creamos un <li/>
+const li = document.createElement('li');
+li.textContent = "Elemento desde js";
+
+//se lo metemos al padre
+lista.appendChild(li);
+
+//con array
+// const arrayPaises = ["España", "Portugal", "Italia"]
+// arrayPaises.forEach(pais => {
+//     const liArray = document.createElement("li");
+//     liArray.textContent = pais;
+//     lista.appendChild(liArray);
+// })
+//Otra manera que vemos a continuación:
+
+// const arrayPaises = ["España", "Portugal", "Italia"]
+// arrayPaises.forEach((pais) => {
+    //inerHtml reescribe el contenido, si ponemos igual, solo saldrá el último elemento
+//     lista.innerHTML += `<li>${pais}</li>`;
+// })
+//Pero esto genera Reflow => Que ocurre cuando un navegador debe procesar y 
+//dibujar parte o la totalidad de la web nuevamente. Y puede generar problemas de 
+//seguridad, asi que usar con cuidado
+
+// Otra manera, que mejora el primer método
+const arrayPaises = ["España", "Portugal", "Italia"]
+
+const fragment = document.createDocumentFragment();
+// const fragment = new DocumentFragment(); lo mismo si lo ponemos así
+
+arrayPaises.forEach(pais => {
+    const liArray = document.createElement("li");
+    liArray.textContent = pais;
+    fragment.appendChild(liArray); //en cada ciclo lo mete en el fragment
+})
+//y luego lo añadimos todo de golpe
+lista.appendChild(fragment);

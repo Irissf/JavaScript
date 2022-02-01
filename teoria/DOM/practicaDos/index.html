@@ -16,21 +16,19 @@
     <script src="index.js" defer></script>
 </head>
 <body>
-    <div class="cont containerUno">
-        <h1 id="tituloWeb" class="text">Lorem, ipsum dolor.</h1>
-        <h2 id="subtitulo">Lorem, ipsum dolor.</h2>
-        <div class="container">
-            <p class="text-danger">Lorem, ipsum dolor. </p>
-            <p class="text-danger">Lorem, ipsum dolor. </p>
-            <p class="text-danger">Lorem, ipsum dolor. </p>
-        </div>
-            <p class="text-danger">Está fuera del container</p>
-        <button class="btn btn-primary">Cambiar texto</button>
-    </div>
-    <div class="cont containerDos">
+
+    <div class="container">
         <ul id="lista">
-            <li>Elemento Estático</li>
         </ul>
     </div>
+
+    <!-- Uso de template, no se renderiza en el navegador -->
+    <template id="liTemplate">
+        <!-- Funciona como una plantilla que se repetirá -->
+        <li class="list">
+        <b>Pais:</b>
+        <span class="text-primary">Aqui va el pais</span>
+        </li>
+    </template>
 </body>
 </html>
