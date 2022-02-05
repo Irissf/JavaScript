@@ -7,10 +7,9 @@ const carrito = document.querySelector(".carrito");
 //botones
 const botones = document.querySelectorAll(".container__fruta--boton");
 
-//para agregar los elementos que seleccionemos
-const carritoObjeto = {
 
-};
+const carritoObjeto = [];
+
 const agregarAlCarrito = (e) =>{
     //accedemos al data del botón que contine la fruta
     console.log(e.target.dataset.fruta);
@@ -22,28 +21,31 @@ const agregarAlCarrito = (e) =>{
         cantidad: 1
     }
 
-    //si ya está el producto aumentamos la cantidad
-    if(carritoObjeto.hasOwnProperty(producto.id)){
-        producto.cantidad = carritoObjeto[producto.titulo].cantidad + 1;
+    //vemos si está el id, si ya existe la fruta y recogemos su indice, -1 si no existe
+    const indice = carritoObjeto.findIndex(
+        (item) => item.id === producto.id
+    );
+    if(indice===-1){
+        //si no existe
+        carritoObjeto.push(producto)
+    }else{
+        //si existe, aumentamos la cantidad
+        carritoObjeto[indice].cantidad ++;
     }
-    
-    //lo empujamos en el array => "manzana":{titulo:"manzana",id:"manzana",cantidad:1} <= eso es loq ue estamos metiendo
-    carritoObjeto[producto.titulo] = producto
+    console.log(carritoObjeto);
 
-
-    pintarCarrito();
+    pintarCarrito(carritoObjeto);
 };
 
 //le metemos el addEventListener a los botones
 botones.forEach((btn)=> btn.addEventListener("click",agregarAlCarrito));
 
-const pintarCarrito = () => {
+const pintarCarrito = (array) => {
 
     //vaciamos lo que ya tenemos para que no se repita
     carrito.textContent = "";
 
-    //recorremos el objeto, para iterar un objeto usamos Object.values
-    Object.values(carritoObjeto).forEach(item => {
+    array.forEach(item => {
         //clonar el tempalte
         const clone = template.content.firstElementChild.cloneNode(true);
         

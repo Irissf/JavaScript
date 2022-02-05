@@ -126,3 +126,22 @@ const arrayNumeros = [
 const soloNumeros = arrayNumeros.reduce((acumulador, valorActual) => acumulador.concat(valorActual));
 
 console.log(soloNumeros); //nos aplanó el array
+
+
+
+
+//**************************** SPLIT y JOIN ************************************/
+/*
+
+Split=> divide una cadena a partir del parámetro que le pasamos
+Join=> junta una arreglo en una cadena con el parámetro pasado
+
+*/
+
+const cadenaMeses = "jan,feb,mar,apr,may,jun,jul,aug,sep,oct,nov,dec";
+
+const arrayMeses = cadenaMeses.split(",");
+console.log(arrayMeses);
+
+const nuevoTexto = arrayMeses.join("-"); //si no indicamos separador, los separa con coma
+console.log(nuevoTexto)
