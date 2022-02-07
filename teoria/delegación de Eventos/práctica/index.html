@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Frutillas</title>
+</head>
+<body>
+    <div class="container">
+        <article class="container__fruta">
+            <h5 class="container__fruta--title">Fresas 🍓</h5>
+            <p class="container__precio">0,70€</p>
+            <button class="container__fruta--boton" data-fruta="Fresa" data-precio="0,70">Agregar Fresa</button>
+        </article>
+        <article class="container__fruta">
+            <h5 class="container__fruta--title">Peras 🍐</h5>
+            <p class="container__precio">0,86€</p>
+            <button class="container__fruta--boton" data-fruta="Pera" data-precio="0,86">Agregar Pera</button>
+        </article>
+        <article class="container__fruta">
+            <h5 class="container__fruta--title">Uvas 🍇</h5>
+            <p class="container__precio">1,10€</p>
+            <button class="container__fruta--boton" data-fruta="Uva" data-precio="1,10">Agregar Uva</button>
+        </article>
+    </div>
+    <div class="resultado">
+        <h5 class="resultado__title">Artículos</h5>
+        <ul class="carrito">
+            <template id="template">
+                <!-- El elemento que se repite es el li -->
+                <li class="elemento">
+                    <span class="elemento__texto">Fresas</span>
+                    <span class="elemento__cantidad">10</span>
+                </li>
+            </template>
+        </ul>
+
+        <footer class="footer">
+            <template id="templateFooter">
+                <p class="footer__text">Total <span>3</span>€</p>
+                <button class="footer__boton">Finalizar compra</button>
+            </template>
+        </footer>
+    </div>
+
+
+
+    <script src="index.js"></script>   
+</body>
+</html>
