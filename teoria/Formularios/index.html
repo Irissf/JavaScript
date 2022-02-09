@@ -7,6 +7,35 @@
         <title>Document</title>
     </head>
     <body>
+        <div class="container">
+            <!-- autocomplete="off" es para evitar autocompletado
+            lo ponemos para las pruebas -->
+
+            <!-- required, minleght,pattern, etc son validaciones de html -->
+            <form id="formulario">
+                <input 
+                    type="text"
+                    name="userName"
+                    placeholder="Ingrese nombre"
+                    autocomplete="off"
+                    id="userName"
+
+                    required
+                    minlength="3"
+                    title="solo letras"
+                >
+                <!-- title es un mensaje que sale en el error cuando completa mal un campo -->
+                <input 
+                    type="email"
+                    name="userEmail"
+                    placeholder="Ingrese correo"
+                    id="userEmail"
+                    required
+                >
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+        
         <script src="index.js"></script>
     </body>
     </html>
