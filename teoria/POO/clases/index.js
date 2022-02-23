@@ -1,25 +1,52 @@
-function Persona(nombre,edad) {
-    this.nombre = nombre;
-    this.edad = edad
-
-    this.saludad = function () {
-        return `${this.nombre} dice hola`
+class Persona {
+    constructor(nombre){
+        this.nombre = nombre;
     }
 
-    // this.saludadIngles = function () {
-    //     return `${this.nombre} says hi!` 
-    // }
+    saludar(){
+       return `${this.nombre} dice hola`
+    }
+
+    //nos permite usar sin instanciar Persona, no podemos acceder a this
+    static probarSaludo(nombre){
+        return `${nombre} probando saludo`
+    }
+
+    //getter y setter, para los que vienen de lenguajes más restrictivo
+    get getNombre(){
+        return this.nombre;
+    }
+    set setNombre(nombre){
+        this.nombre = nombre;
+    }
 }
 
-//por si no es util para todos los objetos, hacemos un prototipo, como una herencia
-Persona.prototype.saludadIngles = function(){
-    return `${this.nombre} says hi!`
+//probando static
+console.log(Persona.probarSaludo("iris"));
+
+
+//la ventaja de la clase, es que todas las funciones van a estar en 
+//la cadena de prototipos
+const iris = new Persona("iris");
+console.log(iris.getNombre);
+console.log(iris.saludar());
+iris.setNombre = "IrisSF";
+console.log(iris.getNombre);
+
+
+//HERENCIAS :D
+class Estudiante extends Persona{
+
+    constructor(nombre, notas ){
+        super(nombre);
+        this.notas = notas ;
+    }
+
+    Saludar(){
+       return `${this.nombre} saluda desde estudiante`
+    }
 }
 
-const juanito = new Persona("Juanito",33);
-const pedrito = new Persona("Pedrito",43);
-console.log(juanito);
-console.log(pedrito);
+const estudiante = new Estudiante("Maria",10);
+console.log(estudiante.Saludar());
 
-console.log(juanito.saludad());
-console.log(pedrito.saludadIngles()); //solo cuando lo llaman, busca el prototipo
